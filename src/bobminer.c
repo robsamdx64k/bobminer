@@ -143,7 +143,7 @@ static void update_prefix_from_diff(double diff) {
         }
     }
 
-    g_target_prefix_zero_bits = (uint32_t)(bits + 8);
+    g_target_prefix_zero_bits = (uint32_t)(bits + 4);
 }
 
 static int parse_url(const char *url, char *host, size_t hsz, char *port, size_t psz) {
