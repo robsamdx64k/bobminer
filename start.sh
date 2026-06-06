@@ -25,6 +25,7 @@ EOF
 echo "Worker   : $WORKER"
 echo "Pool     : $POOL"
 echo "Threads  : $THREADS"
+echo "Algo     : sha3-256t
 echo
 
 ./bobminer \
