@@ -127,18 +127,23 @@ static bool hash_meets_share(const uint8_t hash[32]) {
 }
 
 static void update_prefix_from_diff(double diff) {
-    // Bitcoin-style diff1 target is roughly 32 leading zero bits.
-    // Each x2 difficulty adds about 1 more leading zero bit.
     if (diff <= 0) diff = 1.0;
 
-    uint32_t bits = 32;
+    int bits = 32;
 
-    while (diff >= 2.0 && bits < 64) {
-        bits++;
-        diff /= 2.0;
+    if (diff >= 1.0) {
+        while (diff >= 2.0 && bits < 64) {
+            bits++;
+            diff /= 2.0;
+        }
+    } else {
+        while (diff < 1.0 && bits > 20) {
+            bits--;
+            diff *= 2.0;
+        }
     }
 
-    g_target_prefix_zero_bits = bits;
+    g_target_prefix_zero_bits = (uint32_t)bits;
 }
 
 static int parse_url(const char *url, char *host, size_t hsz, char *port, size_t psz) {
