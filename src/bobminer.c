@@ -313,7 +313,7 @@ static void *miner_thread(void *arg) {
 }
 
 static void usage(const char *p) {
-    fprintf(stderr, "BobMiner ARM v0.1\nUsage: %s -o stratum+tcp://host:port -u wallet.worker -p x [-t threads]\n", p);
+    fprintf(stderr, "BobMiner ARM BC3 v0.1\nUsage: %s -o stratum+tcp://host:port -u wallet.worker -p x [-t threads]\n", p);
 }
 
 int main(int argc, char **argv) {
