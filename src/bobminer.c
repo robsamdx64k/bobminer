@@ -330,7 +330,7 @@ int main(int argc, char **argv) {
     }
     if (!g_cfg.url[0] || !g_cfg.user[0] || parse_url(g_cfg.url, g_cfg.host, sizeof(g_cfg.host), g_cfg.port, sizeof(g_cfg.port))) { usage(argv[0]); return 1; }
     signal(SIGINT, on_sig); signal(SIGTERM, on_sig);
-    printf("BobMiner ARM v0.1 connecting to %s:%s with %d threads\n", g_cfg.host, g_cfg.port, g_cfg.threads);
+    printf("BobMiner ARM BC3 v0.1 connecting to %s:%s with %d threads\n", g_cfg.host, g_cfg.port, g_cfg.threads);
     g_sock = connect_pool(); if (g_sock < 0) die("connect");
     send_json("{\"id\":1,\"method\":\"mining.subscribe\",\"params\":[\"BobMinerARM/0.1\"]}\n");
     send_json("{\"id\":2,\"method\":\"mining.authorize\",\"params\":[\"%s\",\"%s\"]}\n", g_cfg.user, g_cfg.pass);
